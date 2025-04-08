@@ -6,8 +6,8 @@ let times=[
         alaEsquerda: "Leandro Lino",
         pivo: "Leozin",
         fixo: "Rodrigo",
-        técnico: "Douglão",
-        vitória: 31,
+        tecnico: "Douglão",
+        vitoria: 31,
         derrota: 5,
     },
     {
@@ -17,8 +17,8 @@ let times=[
         alaEsquerda: "Ton",
         pivo: "Bob",
         fixo: "Max",
-        técnico: "Betinho",
-        vitória: 22,
+        tecnico: "Betinho",
+        vitoria: 22,
         derrota: 16,
     },
     {
@@ -39,8 +39,8 @@ let times=[
         alaEsquerda: "Alves",
         pivo: "Camilo",
         fixo: "Daniel",
-        técnico: "Sandro",
-        vitória: 24,
+        tecnico: "Sandro",
+        vitoria: 24,
         derrota: 11,
     },
     {
@@ -50,9 +50,14 @@ let times=[
         alaEsquerda: "Ribeiro",
         pivo: "Vitão",
         fixo: "Biel",
-        técnico: "Diego",
-        vitória: 21,
+        tecnico: "Diego",
+        vitoria: 21,
         derrota: 10,
     }
 ]
-console.log (times[2])
+function verTimes(){
+    times.forEach((time) =>{
+        console.log (time.nome + "-" + time.goleiro + "(goleiro)," + time.alaDireita + "(Ala Direita)," + time.alaEsquerda + "(Ala Esquerda)," + time.pivo + "(Pivo)," + time.fixo + "(Fixo)," + time.tecnico + "(Técnico)," + time.vitoria + "(Vitórias)," + time.derrota + "(Derrotas),")
+    });
+}
+verTimes();
