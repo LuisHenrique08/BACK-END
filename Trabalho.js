@@ -29,8 +29,9 @@ function marcarJogos(timeA, timeB, data, horario, estadio, cidade){
     jogos.push(jogo);
     jogosJSON = JSON.stringify(jogos);
     const fs=require('fs');
-    fs.writeFileSync
+    fs.writeFileSync("jogos.json", jogoJSON);
 
 }
+marcarJogos("")
 //criarArquivo();
 verTimes();
