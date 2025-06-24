@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Simples</title>
-    <style>
+    <script>
+        function pesquisaCEP(){
+            var validacep = /^[0-9]{8}$/;   
+            let cep = document.getElementById("cep").value
+
+            if(validacep.test(cep)){
+                var script = document.createElement("script")
+                script.src = "https://viacep.com.br/ws/" + cep + "/json/?callback=preencherCEP"
+            document.body.appendChild(script)
+            } else{
+                alert("CEP preenchido incorretamente")
+            }
+        
+        }
+        function preencherCEP(conteudo){
+            if("erro" in conteudo){
+                resposta.textContent = "CEP não encontrado, digite manualmente o endereço!"
+                
+            } else{
+                document.getElementById("rua").value = conteudo.logradouro
+                document.getElementById("cidade").value = conteudo.localidade
+                document.getElementById("estado").value = conteudo.estado
+                document.getElementById("bairro").value = conteudo.bairro
+            }
+        }
+    </script>
+      <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -67,7 +93,7 @@
         <input type="email" id="email" name="email" required>
 
         <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" required>
+        <input type="text" id="cep" name="cep" onblur="pesquisaCEP();">
 
         <label for="numero">Número:</label>
         <input type="number" id="numero" name="numero" required>
